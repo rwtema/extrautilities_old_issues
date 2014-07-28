@@ -1,0 +1,85 @@
+// Crash Report From most recent crash, (Optifine removed).
+---- Minecraft Crash Report ----
+// I feel sad now :(
+
+Time: 7/27/14 9:41 PM
+Description: Ticking memory connection
+
+java.lang.IndexOutOfBoundsException: length(262) exceeds dst.writableBytes(256) where dst is: UnpooledHeapByteBuf(ridx: 0, widx: 0, cap: 256)
+	at io.netty.buffer.AbstractByteBuf.readBytes(AbstractByteBuf.java:689)
+	at com.rwtema.extrautils.network.splitter.PacketSplitter.splitPacket(PacketSplitter.java:32)
+	at com.rwtema.extrautils.network.NetworkHandler.sendSplitPacket(NetworkHandler.java:46)
+	at com.rwtema.extrautils.block.BlockTradingPost.func_149727_a(BlockTradingPost.java:72)
+	at net.minecraft.server.management.ItemInWorldManager.func_73078_a(ItemInWorldManager.java:372)
+	at net.minecraft.network.NetHandlerPlayServer.func_147346_a(NetHandlerPlayServer.java:551)
+	at net.minecraft.network.play.client.C08PacketPlayerBlockPlacement.func_148833_a(SourceFile:60)
+	at net.minecraft.network.play.client.C08PacketPlayerBlockPlacement.func_148833_a(SourceFile:9)
+	at net.minecraft.network.NetworkManager.func_74428_b(NetworkManager.java:197)
+	at net.minecraft.network.NetworkSystem.func_151269_c(NetworkSystem.java:165)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:643)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:531)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:111)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:414)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:669)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at io.netty.buffer.AbstractByteBuf.readBytes(AbstractByteBuf.java:689)
+	at com.rwtema.extrautils.network.splitter.PacketSplitter.splitPacket(PacketSplitter.java:32)
+	at com.rwtema.extrautils.network.NetworkHandler.sendSplitPacket(NetworkHandler.java:46)
+	at com.rwtema.extrautils.block.BlockTradingPost.func_149727_a(BlockTradingPost.java:72)
+	at net.minecraft.server.management.ItemInWorldManager.func_73078_a(ItemInWorldManager.java:372)
+	at net.minecraft.network.NetHandlerPlayServer.func_147346_a(NetHandlerPlayServer.java:551)
+	at net.minecraft.network.play.client.C08PacketPlayerBlockPlacement.func_148833_a(SourceFile:60)
+	at net.minecraft.network.play.client.C08PacketPlayerBlockPlacement.func_148833_a(SourceFile:9)
+	at net.minecraft.network.NetworkManager.func_74428_b(NetworkManager.java:197)
+
+-- Ticking connection --
+Details:
+	Connection: net.minecraft.network.NetworkManager@5f725c1f
+Stacktrace:
+	at net.minecraft.network.NetworkSystem.func_151269_c(NetworkSystem.java:165)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:643)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:531)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:111)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:414)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:669)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.2
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_05, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 136314584 bytes (129 MB) / 326205440 bytes (311 MB) up to 1060372480 bytes (1011 MB)
+	JVM Flags: 6 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M
+	AABB Pool Size: 1973 (110488 bytes; 0 MB) allocated, 1318 (73808 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.03 FML v7.2.211.1121 Minecraft Forge 10.12.2.1121 18 mods loaded, 18 mods active
+	mcp{9.03} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{7.2.211.1121} [Forge Mod Loader] (forge-1.7.2-10.12.2.1121.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{10.12.2.1121} [Minecraft Forge] (forge-1.7.2-10.12.2.1121.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	CodeChickenCore{1.0.2.10} [CodeChicken Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NotEnoughItems{1.0.2.14} [Not Enough Items] (NotEnoughItems-1.7.2-1.0.2.14-universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	exnihilo{1.33} [Ex Nihilo] (Ex-Nihilo-1.33.jar.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ForgeMultipart{1.1.0.294} [Forge Multipart] (ForgeMultipart-1.7.2-1.1.0.294-universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ExtraUtilities{1.1.0b} [Extra Utilities] (extrautilities-1.1.0b.jar.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	McMultipart{1.1.0.294} [Minecraft Multipart Plugin] (ForgeMultipart-1.7.2-1.1.0.294-universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	inventorytweaks{1.58-147-645ca10} [Inventory Tweaks] (InventoryTweaks-1.58-147.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	MineTweaker3{1.7.2-3.0.3} [MineTweaker 3] (MineTweaker3-1.7.2-3.0.6.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ModTweaker{0.5} [ModTweaker] (ModTweaker-1.7.X-0.5.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NEIAddons{1.11.0.4} [NEI Addons] (neiaddons-mc172-1.11.0.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NEIAddons|ExtraBees{1.11.0.4} [NEI Addons: Extra Bees] (neiaddons-mc172-1.11.0.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NEIAddons|Forestry{1.11.0.4} [NEI Addons: Forestry] (neiaddons-mc172-1.11.0.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NEIAddons|CraftingTables{1.11.0.4} [NEI Addons: Crafting Tables] (neiaddons-mc172-1.11.0.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NEIAddons|ExNihilo{1.11.0.4} [NEI Addons: Ex Nihilo] (neiaddons-mc172-1.11.0.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ForgeMicroblock{1.1.0.294} [Forge Microblocks] (ForgeMultipart-1.7.2-1.1.0.294-universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 229 (12824 bytes; 0 MB) allocated, 158 (8848 bytes; 0 MB) used
+	Player Count: 1 / 8; [EntityPlayerMP['ad9836'/69, l='SkyBlock', x=1179.83, y=63.00, z=-546.36]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
