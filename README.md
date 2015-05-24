@@ -15,7 +15,7 @@ As of now, I am no longer developing for 1.6 and any outstanding bugs or issues 
 
 Regarding Optifine
 ==============
-I do not support Optifine. Optifine makes a large amount of changes to the way rendering works compared to Forge/Vanilla and I cannot garauntee that these changes will not break things. If you are using Optifnie and are having a problem (especially involving rendering) please check to see if it happens without Optifine enabled before reporting.
+I do not support Optifine. Optifine makes a large amount of changes to the way rendering works compared to Forge/Vanilla and I cannot guarantee that these changes will not break things. If you are using Optifnie and are having a problem (especially involving rendering) please check to see if it happens without Optifine enabled before reporting.
 
 
 Regarding Barrel Liquid Dupe glitch in 1.6.4.
